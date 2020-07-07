@@ -3,7 +3,13 @@
     --yellow: #ffcb74;
     --pink: #ea907a;
     --bluegreen: #4f8a8b;
+    --displayFont: 'Permanent Marker', cursive;
+}
 
+h1 {
+    font-family: var(--displayFont);
+    text-align: center;
+    color: var(--bluegreen);
 }
 
 body {
@@ -21,6 +27,7 @@ body {
     border: var(--pink) solid;
     color: var(--bluegreen);
     font-size: 40px;
+    font-family: var(--displayFont);
 }
 
 .div-table > * {
