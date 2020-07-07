@@ -1,0 +1,31 @@
+:root {
+    --lightblue: #f4f6ff;
+    --yellow: #ffcb74;
+    --pink: #ea907a;
+    --bluegreen: #4f8a8b;
+
+}
+
+body {
+    background-color: var(--lightblue);
+}
+
+.div-table {
+    height: 60vh;
+    width: 40vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: var(--yellow);
+    border: var(--pink) solid;
+    color: var(--bluegreen);
+    font-size: 40px;
+}
+
+.div-table > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:  var(--pink) solid thin;
+}
