@@ -1,7 +1,9 @@
-//const TicTactoe = (() => {
+
+let TicTacToe = (() => {
 
 
-    const GameBoard = (() => {
+
+    const GameBoard = () => {
 
         //array
         let gameboard = [];
@@ -67,15 +69,15 @@
         addMarkers();
 
     
-        return {
+        // return {
             
-        }
+        // }
 
 
-    });
+    };
 
 
-    const Display = (() => {
+    const Display = () => {
         
         //global data
         let player1;
@@ -95,7 +97,7 @@
             let marker = "X";
             let score = $p1Score.textContent;
             player1 = Players(name, marker,score)
-            render();
+            
         }
 
 
@@ -125,11 +127,11 @@
 
 
         return {
-            setPlayer1
+            setPlayer1, setPlayer2
         }
-    })();
+    };
 
-    const Players = ((name, marker, score) => {
+    const Players = (name, marker, score) => {
         let getPlayer = () => name;
         let setMarker = () => marker;
         let getScore = () => score;
@@ -138,10 +140,15 @@
             score = newScore;
         }
         return {getPlayer, setMarker, getScore, addScore}
-    });
+    };
 
-//     return {
-//         GameBoard, Display, Players
-//     }
+    Display()
+    GameBoard()
+    
+    
+}
+)();   
 
-// //})();   // END OF MODULE
+
+
+   
