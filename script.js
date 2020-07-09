@@ -71,7 +71,7 @@ let TicTacToe = (() => {
         render()
         setIndex()
         filterGB()
-        addMarkers();
+        //addMarkers();
 
     
         // return {
@@ -122,6 +122,12 @@ let TicTacToe = (() => {
             player2 = Players(name, marker,score)
             render();
         }
+
+        //newGame funct
+        let newGame = () => {
+
+        }
+
 
 
         
