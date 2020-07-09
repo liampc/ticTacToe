@@ -2,7 +2,7 @@
 const GameBoard = (() => {
 
     //array
-    let gameboard = ["X", "X", "O","X", "X", "O","X", "X", "O"];
+    let gameboard = ["X", "", "O","", "X", "","X", "X", "O"];
 
     // DOM 
     let $cells = document.querySelectorAll(".div-table > *")
@@ -25,6 +25,10 @@ const GameBoard = (() => {
 
 
     //filter array
+    let filterGB = () => {
+        let filtered = gameboard.filter(mark => mark != "");
+        console.log(filtered);
+    }
 
     //add markers
 
@@ -36,6 +40,7 @@ const GameBoard = (() => {
     //init
     render()
     setIndex()
+    filterGB()
     
     return {
         
