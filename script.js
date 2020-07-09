@@ -2,10 +2,9 @@
 let TicTacToe = (() => {
 
 
-
     const GameBoard = () => {
 
-        //array
+        //global data
         let gameboard = [];
         let filtered;
 
@@ -74,7 +73,7 @@ let TicTacToe = (() => {
         // }
 
 
-    };
+    }; // end of Gameboard func
 
 
     const Display = () => {
@@ -129,7 +128,10 @@ let TicTacToe = (() => {
         return {
             setPlayer1, setPlayer2
         }
-    };
+    };// end of Display func
+
+
+    // Players factory function
 
     const Players = (name, marker, score) => {
         let getPlayer = () => name;
@@ -142,12 +144,14 @@ let TicTacToe = (() => {
         return {getPlayer, setMarker, getScore, addScore}
     };
 
+    
+    // Module TICTACTOE's functions init
     Display()
     GameBoard()
     
     
 }
-)();   
+)();   // end of TICTACTOE module
 
 
 
