@@ -1,9 +1,26 @@
 
-const GameBoard = {
-    setPlayer1: "factor function",
-    // setPlayer2: "factory func",
-    // setP1marker: ,
-    // setP2marker: ,
-    // addScoreP1: ,
-    // addScoreP2: ,
-}
+const GameBoard = (() => {
+
+    //array
+
+    // DOM 
+
+    //render func
+
+    //set index
+
+    //filter array
+
+    //add markers
+
+    //checkWins
+
+    //bind Events
+
+
+    // return {
+
+    // }
+
+
+})();
