@@ -2,7 +2,7 @@
 const GameBoard = (() => {
 
     //array
-    let gameboard = ["X", "", "O","", "X", "","X", "X", "O"];
+    let gameboard = [];
     let filtered;
 
     // DOM 
@@ -71,3 +71,25 @@ const GameBoard = (() => {
 
 
 })();
+
+
+const DisplayController = (() => {
+    
+    //global data
+    
+    //DOM
+
+    //setPlayer1
+
+    //setPlayer2
+
+    //render
+
+    //bindEvents
+
+    //init
+
+    //return {}
+}
+
+)();
