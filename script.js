@@ -10,7 +10,7 @@ let TicTacToe = (() => {
 
         // DOM 
         let $cells = document.querySelectorAll(".div-table > *")
-
+        let $newGameBtn = document.querySelector(".new-btn");
 
         //render func
         let render = () => {
@@ -53,12 +53,18 @@ let TicTacToe = (() => {
         //checkWins
 
 
-        
+        //newGame funct
+        let newGame = () => {
+            gameboard = [];
+            render();
+        }
+
 
         //bind Events
         $cells.forEach(cell => {
             cell.addEventListener("click", addMarkers)
         })
+        $newGameBtn.addEventListener("click", newGame)
 
         
         //init
@@ -87,6 +93,8 @@ let TicTacToe = (() => {
         let $player2 = document.querySelector(".player2")
         let $p1Score = document.querySelector(".p1Score")
         let $p2Score = document.querySelector(".p2Score")
+        let $p1Marker = document.querySelector(".p1Marker")
+        let $p2Marker = document.querySelector(".p2Marker")
         let $newGameBtn = document.querySelector(".new-btn")
         
 
@@ -94,7 +102,10 @@ let TicTacToe = (() => {
         let setPlayer1 = () => {
             let name = prompt("Player 1"); // change to prompt
             let marker = "X";
-            let score = $p1Score.textContent;
+            let score = 0;
+            if (name == ""){
+                name = "Player 1"
+            }
             player1 = Players(name, marker,score)
             
         }
@@ -102,24 +113,37 @@ let TicTacToe = (() => {
 
         //setPlayer2
         let setPlayer2 = () => {
-            let name = prompt("Player 1"); // change to prompt
-            let marker = "X";
-            let score = $p1Score.textContent;
+            let name = prompt("Player 2"); // change to prompt
+            let marker = "O";
+            let score = 0;
+            if (name == ""){
+                name = "Player 2"
+            }
             player2 = Players(name, marker,score)
             render();
         }
+
+
+        
+
 
 
         //render
         let render = () => {
             $player1.innerHTML = player1.getPlayer()
             $player2.innerHTML = player2.getPlayer()
+            $p1Score.innerHTML = player1.getScore()
+            $p2Score.innerHTML = player2.getScore()
+            $p1Marker.innerHTML = player1.setMarker()
+            $p2Marker.innerHTML = player2.setMarker()
+            
         }
        
 
         //bindEvents
         $newGameBtn.addEventListener("click", setPlayer1)
         $newGameBtn.addEventListener("click", setPlayer2)
+       
 
         //init
         
