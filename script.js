@@ -70,12 +70,16 @@ let TicTacToe = (() => {
 
             let combined = [rows, columns, diagonals].flat()
 
-            let win = combined.some(win => win == "XXX" || win == "OOO")
-            if (win == true){
-                alert("WINNN");
+            let Xwin = combined.some(win => win == "XXX");
+            let Owin = combined.some(win => win == "OOO")
+            if (Xwin == true){
+                alert("X WINS");
                 newGame()
             }
-            else console.log("LOSE")
+            else if (Owin == true){
+                alert("O WINS")
+                newGame();
+            }
         }
 
 
