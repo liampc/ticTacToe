@@ -100,16 +100,25 @@
 
 
         //setPlayer2
+        let setPlayer2 = () => {
+            let name = prompt("Player 1"); // change to prompt
+            let marker = "X";
+            let score = $p1Score.textContent;
+            player2 = Players(name, marker,score)
+            render();
+        }
+
 
         //render
         let render = () => {
             $player1.innerHTML = player1.getPlayer()
+            $player2.innerHTML = player2.getPlayer()
         }
        
 
         //bindEvents
         $newGameBtn.addEventListener("click", setPlayer1)
-
+        $newGameBtn.addEventListener("click", setPlayer2)
 
         //init
         
