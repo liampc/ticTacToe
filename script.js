@@ -76,8 +76,13 @@ const GameBoard = (() => {
 const DisplayController = (() => {
     
     //global data
+    let player1;
+    let player2;
     
     //DOM
+    let setPlayer1 = () => {
+
+    }
 
     //setPlayer1
 
@@ -93,3 +98,14 @@ const DisplayController = (() => {
 }
 
 )();
+
+let Players = (name, marker, score) => {
+    let getPlayer = () => name;
+    let setMarker = () => marker;
+    let getScore = () => score;
+    let addScore = () => {
+        let newScore = parseInt(getScore()) + 1
+        score = newScore;
+    }
+    return {getPlayer, setMarker, getScore, addScore}
+}
