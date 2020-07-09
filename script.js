@@ -48,9 +48,35 @@ let TicTacToe = (() => {
                 filterGB()
             }
             render();
+            checkWins();
         }
 
         //checkWins
+        let checkWins = () => {
+            let g = gameboard;
+            let r1 = [g[0], g[1], g[2]].join("")
+            let r2 = [g[3], g[4], g[5]].join("")
+            let r3 = [g[6], g[7], g[8]].join("")
+            let rows = [r1, r2 ,r3]
+            
+            let c1 = [g[0], g[3], g[6]].join("")
+            let c2 = [g[1], g[4], g[7]].join("")
+            let c3 = [g[2], g[5], g[8]].join("")
+            let columns = [c1, c2, c3]
+
+            let d1 = [g[0], g[4], g[7]].join("")
+            let d2 = [g[2], g[4], g[6]].join("")
+            let diagonals = [d1,d2]
+
+            let combined = [rows, columns, diagonals].flat()
+
+            let win = combined.some(win => win == "XXX" || win == "OOO")
+            if (win == true){
+                alert("WINNN");
+                newGame()
+            }
+            else console.log("LOSE")
+        }
 
 
         //newGame funct
@@ -67,19 +93,22 @@ let TicTacToe = (() => {
         $newGameBtn.addEventListener("click", newGame)
 
         
-        //init
+        //initialize
         render()
         setIndex()
         filterGB()
-        //addMarkers();
-
+        addMarkers()
+        checkWins()
     
         // return {
-            
+        //     checkWins
         // }
 
 
     }; // end of Gameboard func
+
+
+    /////////////////////
 
 
     const Display = () => {
@@ -127,11 +156,6 @@ let TicTacToe = (() => {
         let newGame = () => {
 
         }
-
-
-
-        
-
 
 
         //render
