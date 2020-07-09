@@ -15,8 +15,14 @@ const GameBoard = (() => {
         }
     }
 
-
     //set index
+    let setIndex = () => {
+        for (let i = 0; i < $cells.length; i++){
+            $cells[i].setAttribute("data-index", i)
+        }
+        
+    }
+
 
     //filter array
 
@@ -29,7 +35,7 @@ const GameBoard = (() => {
     
     //init
     render()
-
+    setIndex()
     
     return {
         
