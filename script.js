@@ -3,6 +3,7 @@ const GameBoard = (() => {
 
     //array
     let gameboard = ["X", "", "O","", "X", "","X", "X", "O"];
+    let filtered;
 
     // DOM 
     let $cells = document.querySelectorAll(".div-table > *")
@@ -26,22 +27,44 @@ const GameBoard = (() => {
 
     //filter array
     let filterGB = () => {
-        let filtered = gameboard.filter(mark => mark != "");
-        console.log(filtered);
+        filtered = gameboard.filter(mark => mark != "");
     }
 
     //add markers
+    let addMarkers = (e) => {
+        let cell = e.target
+        let index = cell.getAttribute("data-index");
+        filterGB();
+
+        if (filtered.length % 2 == 0 && cell.textContent == ""){
+            gameboard[index] = "X"
+            filterGB()
+        }
+        else if (filtered.length % 2 != 0 && cell.textContent == ""){
+            gameboard[index] = "O"
+            filterGB()
+        }
+        render();
+    }
 
     //checkWins
 
+
+    
+
     //bind Events
+    $cells.forEach(cell => {
+        cell.addEventListener("click", addMarkers)
+    })
 
     
     //init
     render()
     setIndex()
     filterGB()
-    
+    addMarkers();
+
+   
     return {
         
     }
