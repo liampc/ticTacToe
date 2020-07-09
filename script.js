@@ -1,4 +1,4 @@
-const TicTactoe = (() => {
+//const TicTactoe = (() => {
 
 
     const GameBoard = (() => {
@@ -78,7 +78,7 @@ const TicTactoe = (() => {
     const Display = (() => {
         
         //global data
-        let player1 = "player1";
+        let player1;
         let player2;
         
         //DOM
@@ -93,23 +93,32 @@ const TicTactoe = (() => {
         let setPlayer1 = () => {
             let name = prompt("Player 1"); // change to prompt
             let marker = "X";
-            let score = this.$p1Score.textContent;
-            let p1 = Players(name, marker,score)
+            let score = $p1Score.textContent;
+            player1 = Players(name, marker,score)
+            render();
         }
 
 
         //setPlayer2
 
         //render
+        let render = () => {
+            $player1.innerHTML = player1.getPlayer()
+        }
+       
 
         //bindEvents
+        $newGameBtn.addEventListener("click", setPlayer1)
+
 
         //init
+        
+
 
         return {
-            player1
+            setPlayer1
         }
-    });
+    })();
 
     const Players = ((name, marker, score) => {
         let getPlayer = () => name;
@@ -122,8 +131,8 @@ const TicTactoe = (() => {
         return {getPlayer, setMarker, getScore, addScore}
     });
 
-    return {
-        GameBoard, Display, Players
-    }
+//     return {
+//         GameBoard, Display, Players
+//     }
 
-})();
+// //})();   // END OF MODULE
