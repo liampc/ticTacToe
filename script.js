@@ -92,14 +92,17 @@ const GameBoard = (() => {
         let Owin = combined.some(win => win == "OOO")
         if (Xwin == true){
             alert("X WINS");
+            Display.addScoreP1()
             newGame()
         }
         else if (Owin == true){
             alert("O WINS")
+            Display.addScoreP2()
             newGame();
         }
         else if (filtered.length == 9){
             alert("TIE")
+            newGame()
         }
     }
 
@@ -172,6 +175,8 @@ const Display = (() => {
         
     }
 
+   
+
     Player1 = Players(setP1Name(), "X", 0)
     Player2 = Players(setP2Name(), "O", 0)
 
@@ -184,6 +189,16 @@ const Display = (() => {
         $p1Marker.innerHTML = Player1.setMarker()
         $p2Marker.innerHTML = Player2.setMarker()
         
+    }
+
+    let addScoreP1 = () => {
+        Player1.addScore()
+        render()
+    }
+
+    let addScoreP2 = () => {
+        Player2.addScore()
+        render()
     }
     
 
@@ -199,7 +214,7 @@ const Display = (() => {
 
 
     return {
-        setPlayer1, setPlayer2
+        setP1Name, setP2Name, addScoreP1, addScoreP2
     }
 })();// end of Display func
 
