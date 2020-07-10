@@ -159,52 +159,43 @@ const Display = (() => {
 
 
     //setPlayer1
-    let setPlayer1 = () => {
-        let name = prompt("Player 1"); // change to prompt
-        let marker = "X";
-        let score = 0;
-        if (name == ""){
-            name = "Player 1"
-        }
-        player1 = Players(name, marker,score)
+    let setP1Name = () => {
+        let name = $player1.textContent
+        return name
         
     }
 
-
     //setPlayer2
-    let setPlayer2 = () => {
-        let name = prompt("Player 2"); // change to prompt
-        let marker = "O";
-        let score = 0;
-        if (name == ""){
-            name = "Player 2"
-        }
-        player2 = Players(name, marker,score)
-        render();
+    let setP2Name = () => {
+        let name = $player2.textContent
+        return name
+        
     }
 
-    
-
+    Player1 = Players(setP1Name(), "X", 0)
+    Player2 = Players(setP2Name(), "O", 0)
 
     //render
     let render = () => {
-        $player1.innerHTML = player1.getPlayer()
-        $player2.innerHTML = player2.getPlayer()
-        $p1Score.innerHTML = player1.getScore()
-        $p2Score.innerHTML = player2.getScore()
-        $p1Marker.innerHTML = player1.setMarker()
-        $p2Marker.innerHTML = player2.setMarker()
+        $player1.innerHTML = Player1.getPlayer()
+        $player2.innerHTML = Player2.getPlayer()
+        $p1Score.innerHTML = Player1.getScore()
+        $p2Score.innerHTML = Player2.getScore()
+        $p1Marker.innerHTML = Player1.setMarker()
+        $p2Marker.innerHTML = Player2.setMarker()
         
     }
     
 
     //bindEvents
-    $newGameBtn.addEventListener("click", setPlayer1)
-    $newGameBtn.addEventListener("click", setPlayer2)
+    //$newGameBtn.addEventListener("click", setPlayer1)
+    //$newGameBtn.addEventListener("click", setPlayer2)
     $player1.addEventListener("click", changeName)
     $player2.addEventListener("click", changeName)
-    //init
     
+    
+    //init
+    render();
 
 
     return {
