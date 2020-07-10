@@ -1,4 +1,11 @@
-// Players factory function
+
+// Global Variables
+
+let Player1;
+let Player2;
+
+
+////////////// Players factory function
 
 const Players = (name, marker, score) => {
     let getPlayer = () => name;
@@ -124,7 +131,7 @@ const GameBoard = (() => {
 })(); // end of Gameboard func
 
 
-/////////////////////
+///////////////////// DISPLAY MODULE ////////////////////
 
 
 const Display = (() => {
