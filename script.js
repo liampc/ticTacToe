@@ -91,6 +91,9 @@ const GameBoard = (() => {
             alert("O WINS")
             newGame();
         }
+        else if (filtered.length == 9){
+            alert("TIE")
+        }
     }
 
 
