@@ -75,7 +75,7 @@ const GameBoard = (() => {
         let c3 = [g[2], g[5], g[8]].join("")
         let columns = [c1, c2, c3]
 
-        let d1 = [g[0], g[4], g[7]].join("")
+        let d1 = [g[0], g[4], g[8]].join("")
         let d2 = [g[2], g[4], g[6]].join("")
         let diagonals = [d1,d2]
 
