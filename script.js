@@ -150,6 +150,14 @@ const Display = (() => {
     let $newGameBtn = document.querySelector(".new-btn")
     
 
+    //promptName 
+
+    let changeName = (e) => {
+        let name = e.target
+        name.textContent = prompt("Change name")
+    }
+
+
     //setPlayer1
     let setPlayer1 = () => {
         let name = prompt("Player 1"); // change to prompt
@@ -175,10 +183,7 @@ const Display = (() => {
         render();
     }
 
-    //newGame funct
-    let newGame = () => {
-
-    }
+    
 
 
     //render
@@ -196,8 +201,8 @@ const Display = (() => {
     //bindEvents
     $newGameBtn.addEventListener("click", setPlayer1)
     $newGameBtn.addEventListener("click", setPlayer2)
-    
-
+    $player1.addEventListener("click", changeName)
+    $player2.addEventListener("click", changeName)
     //init
     
 
