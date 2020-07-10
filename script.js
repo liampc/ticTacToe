@@ -1,4 +1,11 @@
-// Players factory function
+
+// Global Variables
+
+let Player1;
+let Player2;
+
+
+////////////// Players factory function
 
 const Players = (name, marker, score) => {
     let getPlayer = () => name;
@@ -85,14 +92,17 @@ const GameBoard = (() => {
         let Owin = combined.some(win => win == "OOO")
         if (Xwin == true){
             alert("X WINS");
+            Display.addScoreP1()
             newGame()
         }
         else if (Owin == true){
             alert("O WINS")
+            Display.addScoreP2()
             newGame();
         }
         else if (filtered.length == 9){
             alert("TIE")
+            newGame()
         }
     }
 
@@ -124,7 +134,7 @@ const GameBoard = (() => {
 })(); // end of Gameboard func
 
 
-/////////////////////
+///////////////////// DISPLAY MODULE ////////////////////
 
 
 const Display = (() => {
@@ -143,60 +153,68 @@ const Display = (() => {
     let $newGameBtn = document.querySelector(".new-btn")
     
 
+    //promptName 
+
+    let changeName = (e) => {
+        let name = e.target
+        name.textContent = prompt("Change name")
+    }
+
+
     //setPlayer1
-    let setPlayer1 = () => {
-        let name = prompt("Player 1"); // change to prompt
-        let marker = "X";
-        let score = 0;
-        if (name == ""){
-            name = "Player 1"
-        }
-        player1 = Players(name, marker,score)
+    let setP1Name = () => {
+        let name = $player1.textContent
+        return name
         
     }
 
-
     //setPlayer2
-    let setPlayer2 = () => {
-        let name = prompt("Player 2"); // change to prompt
-        let marker = "O";
-        let score = 0;
-        if (name == ""){
-            name = "Player 2"
-        }
-        player2 = Players(name, marker,score)
-        render();
+    let setP2Name = () => {
+        let name = $player2.textContent
+        return name
+        
     }
 
-    //newGame funct
-    let newGame = () => {
+   
 
-    }
-
+    Player1 = Players(setP1Name(), "X", 0)
+    Player2 = Players(setP2Name(), "O", 0)
 
     //render
     let render = () => {
-        $player1.innerHTML = player1.getPlayer()
-        $player2.innerHTML = player2.getPlayer()
-        $p1Score.innerHTML = player1.getScore()
-        $p2Score.innerHTML = player2.getScore()
-        $p1Marker.innerHTML = player1.setMarker()
-        $p2Marker.innerHTML = player2.setMarker()
+        $player1.innerHTML = Player1.getPlayer()
+        $player2.innerHTML = Player2.getPlayer()
+        $p1Score.innerHTML = Player1.getScore()
+        $p2Score.innerHTML = Player2.getScore()
+        $p1Marker.innerHTML = Player1.setMarker()
+        $p2Marker.innerHTML = Player2.setMarker()
         
+    }
+
+    let addScoreP1 = () => {
+        Player1.addScore()
+        render()
+    }
+
+    let addScoreP2 = () => {
+        Player2.addScore()
+        render()
     }
     
 
     //bindEvents
-    $newGameBtn.addEventListener("click", setPlayer1)
-    $newGameBtn.addEventListener("click", setPlayer2)
+    //$newGameBtn.addEventListener("click", setPlayer1)
+    //$newGameBtn.addEventListener("click", setPlayer2)
+    $player1.addEventListener("click", changeName)
+    $player2.addEventListener("click", changeName)
     
-
+    
     //init
-    
+    render();
 
 
     return {
-        setPlayer1, setPlayer2
+        setP1Name, setP2Name, addScoreP1, addScoreP2
     }
 })();// end of Display func
 
