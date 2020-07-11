@@ -148,6 +148,7 @@ const Display = (() => {
     //global data
     let player1;
     let player2;
+
     
     //DOM
     let $player1 = document.querySelector(".player1")
@@ -161,9 +162,10 @@ const Display = (() => {
 
     //promptName 
 
-    let changeName = (e) => {
-        let name = e.target
-        name.textContent = prompt("Change name")
+    let changeName = () => {
+        //let name = e.target
+        $player1.textContent = prompt("Change name")
+        $player2.textContent = prompt("Change name")
     }
 
 
@@ -188,8 +190,8 @@ const Display = (() => {
 
     //render
     let render = () => {
-        $player1.innerHTML = Player1.getPlayer()
-        $player2.innerHTML = Player2.getPlayer()
+        $player1.innerHTML = setP1Name()
+        $player2.innerHTML = setP2Name()
         $p1Score.innerHTML = Player1.getScore()
         $p2Score.innerHTML = Player2.getScore()
         $p1Marker.innerHTML = Player1.setMarker()
@@ -215,10 +217,9 @@ const Display = (() => {
     
 
     //bindEvents
-    //$newGameBtn.addEventListener("click", setPlayer1)
-    //$newGameBtn.addEventListener("click", setPlayer2)
-    $player1.addEventListener("click", changeName)
-    $player2.addEventListener("click", changeName)
+    $newGameBtn.addEventListener("click", changeName)
+   
+   
     
     
     //init
