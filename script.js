@@ -150,7 +150,6 @@ const GameBoard = (() => {
 
 const Display = (() => {
     
-    //global data
     
     //DOM
     let $player1 = document.querySelector(".player1")
@@ -162,10 +161,8 @@ const Display = (() => {
     let $newGameBtn = document.querySelector(".new-btn")
     
 
-    //promptName 
 
     let changeName = () => {
-        //let name = e.target
 
         let p1 = prompt("Change player 1");
         let p2 = prompt("Change player 2");
@@ -199,6 +196,7 @@ const Display = (() => {
     //set Players using Players Factory function
     Player1 = Players(setP1Name(), "X", 0)
     Player2 = Players(setP2Name(), "O", 0)
+
 
     //render
     let render = () => {
@@ -239,6 +237,8 @@ const Display = (() => {
     return {
         setP1Name, setP2Name, addScoreP1, addScoreP2, clearScore
     }
+
+    
 })();// end of Display func
 
 
