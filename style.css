@@ -6,14 +6,35 @@
     --displayFont: 'Permanent Marker', cursive;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom:  5%;
+}
+
 h1 {
     font-family: var(--displayFont);
     text-align: center;
     color: var(--bluegreen);
 }
 
+.new-btn {
+    width: 20%;
+    height: 40px;
+    margin: 0 auto;
+    border: thin gray solid;
+    background-color: var(--bluegreen);
+    border-radius: 2px ;
+}
+
 body {
     background-color: var(--lightblue);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
 }
 
 .div-table {
@@ -54,3 +75,5 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+

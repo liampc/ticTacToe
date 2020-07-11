@@ -21,6 +21,10 @@ const Players = (name, marker, score) => {
 
 
 
+////////////// GAMEBOARD /////////////////
+
+
+
 const GameBoard = (() => {
 
     //global data
@@ -132,23 +136,21 @@ const GameBoard = (() => {
     setIndex()
     filterGB()
 
-    // return {
-    //     checkWins
-    // }
+    
 
 
 })(); // end of Gameboard func
 
 
+
+
 ///////////////////// DISPLAY MODULE ////////////////////
+
 
 
 const Display = (() => {
     
     //global data
-    let player1;
-    let player2;
-
     
     //DOM
     let $player1 = document.querySelector(".player1")
@@ -165,8 +167,8 @@ const Display = (() => {
     let changeName = () => {
         //let name = e.target
 
-        let p1 = prompt("Change name");
-        let p2 = prompt("Change name");
+        let p1 = prompt("Change player 1");
+        let p2 = prompt("Change player 2");
 
         if (p1 == ""){
             p1 = "Player 1"
@@ -194,8 +196,7 @@ const Display = (() => {
         
     }
 
-   
-
+    //set Players using Players Factory function
     Player1 = Players(setP1Name(), "X", 0)
     Player2 = Players(setP2Name(), "O", 0)
 
@@ -230,8 +231,6 @@ const Display = (() => {
     //bindEvents
     $newGameBtn.addEventListener("click", changeName)
    
-   
-    
     
     //init
     render();
