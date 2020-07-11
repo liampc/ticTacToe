@@ -96,12 +96,12 @@ const GameBoard = (() => {
         let Xwin = combined.some(win => win == "XXX");
         let Owin = combined.some(win => win == "OOO")
         if (Xwin == true){
-            alert("X WINS");
+            alert(`${Display.setP1Name()} wins this round!`);
             Display.addScoreP1()
             newRound()
         }
         else if (Owin == true){
-            alert("O WINS")
+            alert(`${Display.setP2Name()} wins this round!`)
             Display.addScoreP2()
             newRound()
         }
