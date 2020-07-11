@@ -164,8 +164,19 @@ const Display = (() => {
 
     let changeName = () => {
         //let name = e.target
-        $player1.textContent = prompt("Change name")
-        $player2.textContent = prompt("Change name")
+
+        let p1 = prompt("Change name");
+        let p2 = prompt("Change name");
+
+        if (p1 == ""){
+            p1 = "Player 1"
+        }
+        if (p2 == ""){
+            p2 = "Player 2"
+        }
+
+        $player1.textContent = p1;
+        $player2.textContent = p2;
     }
 
 
