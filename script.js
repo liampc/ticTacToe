@@ -72,6 +72,7 @@ const GameBoard = (() => {
         }
         render();
         checkWins();
+        checkFinal()
     }
 
     //checkWins
@@ -125,6 +126,18 @@ const GameBoard = (() => {
         Display.Player1.clearScore()
         Display.Player2.clearScore()
         Display.render()
+    }
+
+    let checkFinal = () => {
+        if (Display.Player1.getScore() == 3){
+            alert(`${Display.setP1Name()} is the final winner!`)
+            newGame()
+        }
+        else if (Display.Player2.getScore() == 3){
+            alert(`${Display.setP1Name()} is the final winner!`)
+            newGame()
+        }
+        
     }
 
 
