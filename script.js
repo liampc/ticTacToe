@@ -97,12 +97,14 @@ const GameBoard = (() => {
         let Owin = combined.some(win => win == "OOO")
         if (Xwin == true){
             alert(`${Display.setP1Name()} wins this round!`);
-            Display.addScoreP1()
+            Display.Player1.addScore()
+            Display.render()
             newRound()
         }
         else if (Owin == true){
             alert(`${Display.setP2Name()} wins this round!`)
-            Display.addScoreP2()
+            Display.Player2.addScore()
+            Display.render()
             newRound()
         }
         else if (filtered.length == 9){
@@ -120,7 +122,9 @@ const GameBoard = (() => {
 
     let newGame = () => {
         gameboard = []
-        Display.clearScore()
+        Display.Player1.clearScore()
+        Display.Player2.clearScore()
+        Display.render()
     }
 
 
@@ -209,22 +213,6 @@ const Display = (() => {
         
     }
 
-    let addScoreP1 = () => {
-        Player1.addScore()
-        render()
-    }
-
-    let addScoreP2 = () => {
-        Player2.addScore()
-        render()
-    }
-
-    let clearScore = () => {
-        Player1.clearScore()
-        Player2.clearScore()
-        render()
-    }
-    
 
     //bindEvents
     $newGameBtn.addEventListener("click", changeName)
@@ -235,7 +223,7 @@ const Display = (() => {
 
 
     return {
-        setP1Name, setP2Name, addScoreP1, addScoreP2, clearScore
+       Player1, Player2, render, setP1Name, setP2Name
     }
 
     
