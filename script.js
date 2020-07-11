@@ -15,7 +15,8 @@ const Players = (name, marker, score) => {
         let newScore = parseInt(getScore()) + 1
         score = newScore;
     }
-    return {getPlayer, setMarker, getScore, addScore}
+    let clearScore = () => score = 0;
+    return {getPlayer, setMarker, getScore, addScore, clearScore}
 };
 
 
@@ -93,24 +94,29 @@ const GameBoard = (() => {
         if (Xwin == true){
             alert("X WINS");
             Display.addScoreP1()
-            newGame()
+            newRound()
         }
         else if (Owin == true){
             alert("O WINS")
             Display.addScoreP2()
-            newGame();
+            newRound()
         }
         else if (filtered.length == 9){
             alert("TIE")
-            newGame()
+            newRound()
         }
     }
 
 
     //newGame funct
-    let newGame = () => {
+    let newRound = () => {
         gameboard = [];
         render();
+    }
+
+    let newGame = () => {
+        gameboard = []
+        Display.clearScore()
     }
 
 
@@ -200,6 +206,12 @@ const Display = (() => {
         Player2.addScore()
         render()
     }
+
+    let clearScore = () => {
+        Player1.clearScore()
+        Player2.clearScore()
+        render()
+    }
     
 
     //bindEvents
@@ -214,7 +226,7 @@ const Display = (() => {
 
 
     return {
-        setP1Name, setP2Name, addScoreP1, addScoreP2
+        setP1Name, setP2Name, addScoreP1, addScoreP2, clearScore
     }
 })();// end of Display func
 
