@@ -1,4 +1,11 @@
-Project Name: TIC TAC TOE
+# TIC TAC TOE
 
-Project for The Odin Project/Javascript 
+## Project: The Odin Project - Javascript 
 
+### Objectives 
+1. Practice using Javascript
+2. DOM Manipulation
+
+### Preview
+
+https://liampc.github.io/ticTacToe/
